@@ -11,16 +11,16 @@ export interface ISMTPConfig {
   password: string
 }
 
-export async function sendMail(
+export async function send(
   notification: UniversalNotification
-, config: ISMTPConfig
 , sender: string
-, receivers: string[]
+, recipients: string[]
+, config: ISMTPConfig
 ): Promise<void> {
   const transporter = createTransport(config)
   await transporter.sendMail({
     from: sender
-  , to: receivers
+  , to: recipients
   , subject: notification.title
   , html: convertUniversalNotificationToHTML(notification)
   })

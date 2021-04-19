@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { program } from 'commander'
-import { sendMail, verifyConfig, ISMTPConfig } from './email'
+import { send, verifyConfig, ISMTPConfig } from './email'
 import * as readline from 'readline'
 import { parseUniversalNotification } from 'universal-notification'
 import { assert } from '@blackglory/errors'
@@ -43,12 +43,7 @@ program
     for await (const line of stdin) {
       const notification = parseUniversalNotification(line)
       if (notification) {
-        await sendMail(
-          notification
-        , config
-        , sender
-        , recipients
-        )
+        await send(notification, sender, recipients, config)
       } else {
         console.error(`"${line}" is not a valid UniversalNotification object.`)
       }
