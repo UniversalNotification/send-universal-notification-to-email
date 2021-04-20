@@ -22,7 +22,7 @@ program
   .action(async () => {
     const opts = program.opts()
     const host: string = opts.host
-    assert(/^\d+$/.test(opts.port), 'The parameter port must be a integer.')
+    assert(/^\d+$/.test(opts.port), 'The parameter port must be an integer.')
     const port: number = Number.parseInt(opts.port, 10)
     const secure: boolean = opts.secure
     const username: string = opts.username
