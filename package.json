@@ -1,6 +1,6 @@
 {
   "name": "send-universal-notification-to-email",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Command-line UniversalNotification to email forwarder",
   "files": [
     "lib"
